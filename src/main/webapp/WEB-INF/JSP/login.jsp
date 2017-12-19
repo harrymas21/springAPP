@@ -1,50 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-        <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-        <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-            <title>Login</title>
-        </head>
-        <body>
-            <form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
-
-                <table align="center">
-                    <tr>
-                        <td>
+<%@include file="loginHeader.jsp" %>
+<div  class="middle-box text-center loginscreen animated fadeInDown">
+    <br/><br/><br/><br/><br/>
+<fieldset>
+            <form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post" class="m-t">
+                        <div class="form-group">
                             <form:label path="username">Username: </form:label>
-                        </td>
-                        <td>
-                            <form:input path="username" name="username" id="username" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                            <form:input path="username" name="username" id="username" placeholder="Username"/>
+                        </div>
+                        <div class="form-group">
                             <form:label path="password">Password:</form:label>
-                        </td>
-                        <td>
-                            <form:password path="password" name="password" id="password" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td align="left">
+                            <form:password path="password" name="password" id="password" placeholder="Password" />
+                        </div>
                             <form:button id="login" name="login">Login</form:button>
-                        </td>
-                    </tr>
-                    <tr></tr>
-                    <tr>
-                        <td></td>
-                        <td><a href="home.jsp">Home</a>
-                        </td>
-                    </tr>
-                </table>
             </form:form>
+    
             <table align="center">
                 <tr>
                     <td style="font-style: italic; color: red;">${message}</td>
                 </tr>
             </table>
-        </body>
-        </html>
+                <a href="${pageContext.servletContext.contextPath}/" class="h3">Back</a>
+                <h5 style="color:dodgerblue">&copy; </h5>
+                <h5 style="color:dodgerblue">VERSION 1.0.0</h5>
+                    </fieldset>
+</div>
+<%@include file="loginFooter.jsp" %>

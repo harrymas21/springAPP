@@ -8,11 +8,9 @@
 		http://www.springframework.org/schema/mvc	http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/aop	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-	<mvc:annotation-driven />
-        <mvc:resources mapping="/" location="/index.jsp" />
-	<context:component-scan base-package="com.carbonara.spring" />
-
-
+	
+        <context:component-scan base-package="com.carbonara.spring" />        
+        
 	<bean id="employeeDAOImpl" class="com.carbonara.spring.EmployeeDAOImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
@@ -37,4 +35,6 @@
                 <!--property name="prefix" value="/" /-->
 		<property name="suffix" value=".jsp" />
 	</bean>
+        <mvc:resources mapping="/resources/**" location="/resources/"/>
+        <mvc:annotation-driven/>
 </beans>

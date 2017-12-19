@@ -22,6 +22,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
     }
 
     // Saving a new Employee
+    @Override
     public void saveEmployee(Employee employee)
     {
         String sql = "INSERT INTO Employee (ID, AGE, DEPT, NAME)VALUES(?,?,?,?)";
@@ -31,6 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
     }
 
     // Getting a particular Employee
+    @Override
     public Employee getEmployeeById(int id)
     {
         String sql = "select * from Employee where id=?";
@@ -42,9 +44,9 @@ public class EmployeeDAOImpl implements EmployeeDAO
             {
                 Employee employee = new Employee();
                 employee.setId(rs.getInt(1));
-                employee.setAge(rs.getInt(2));
+                employee.setName(rs.getString(2));
                 employee.setDept(rs.getString(3));
-                employee.setName(rs.getString(4));
+                employee.setAge(rs.getInt(4));
                 return employee;
             }
         });
@@ -52,6 +54,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
     }
 
     // Getting all the Employees
+    @Override
     public List<Employee> getAllEmployees()
     {
         String sql = "SELECT * FROM Employee";
@@ -66,9 +69,9 @@ public class EmployeeDAOImpl implements EmployeeDAO
                 {
                     Employee employee = new Employee();
                     employee.setId(rs.getInt(1));
-                    employee.setAge(rs.getInt(4));
-                    employee.setDept(rs.getString(3));
                     employee.setName(rs.getString(2));
+                    employee.setDept(rs.getString(3));
+                    employee.setAge(rs.getInt(4));
                     list.add(employee);
                 }
                 return list;
@@ -79,6 +82,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
     }
 
     // Updating a particular Employee
+    @Override
     public void updateEmployee(Employee employee)
     {
         String sql = "UPDATE Employee SET age =?, dept=?,name=? where id=?";
@@ -87,6 +91,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
     }
 
     // Deletion of a particular Employee
+    @Override
     public void deleteEmployee(int id)
     {
         String sql = "DELETE employee WHERE id=?";

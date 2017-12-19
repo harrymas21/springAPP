@@ -23,12 +23,14 @@ public class UserDaoImpl implements UserDao {
   @Autowired
   JdbcTemplate jdbcTemplate;
 
+  @Override
   public void register(User user) {
     String sql = "insert into users values(?,?,?,?,?,?,?)";
     jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
     user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
     }
 
+  @Override
     public User validateUser(Login login) {
     String sql = "select * from users where username='" + login.getUsername() + "' and password='" + login.getPassword()
     + "'";
@@ -42,6 +44,7 @@ public class UserDaoImpl implements UserDao {
 
   class UserMapper implements RowMapper<User> {
 
+  @Override
   public User mapRow(ResultSet rs, int arg1) throws SQLException {
 
     User user = new User();
