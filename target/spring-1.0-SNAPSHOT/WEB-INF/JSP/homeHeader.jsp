@@ -101,6 +101,12 @@
                     <span>Manage Employees</span>
                 </a>
             </li>
+            <li>
+               <a class="" href="users">
+                   <i class="icon_house_alt"></i>
+                   <span>View Users</span>
+                   </a>
+            </li>
         </ul>
         <!-- sidebar menu end-->
     </div>

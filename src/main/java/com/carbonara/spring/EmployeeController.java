@@ -33,7 +33,7 @@ public class EmployeeController
         return new ModelAndView("redirect:/employees");
     }
     
-    @RequestMapping(value = "/edit/{id}")
+    @RequestMapping(value = "/employee/edit/{id}")
     public ModelAndView editEmployee(@ModelAttribute("employee") Employee employee,@PathVariable("id") int id)
     {
         ModelAndView model = new ModelAndView("employees");
@@ -47,7 +47,7 @@ public class EmployeeController
         return model;
     }
     
-    @RequestMapping(value = "/delete/{id}")
+    @RequestMapping(value = "/employee/delete/{id}")
     public ModelAndView deleteEmployee(@ModelAttribute("employee") Employee employee,@PathVariable("id") int id)
     {
         employeeDAO.deleteEmployee(id);
@@ -61,7 +61,7 @@ public class EmployeeController
         ModelAndView model = new ModelAndView("employees");
 
         List employeeList = employeeDAO.getAllEmployees();
-        System.out.println(employeeList);
+        //System.out.println(employeeList);
         model.addObject("employeeList", employeeList);
         
         return model;

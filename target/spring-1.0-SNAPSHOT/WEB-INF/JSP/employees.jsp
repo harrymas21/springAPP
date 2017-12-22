@@ -2,6 +2,11 @@
 <section id="main-content">
        <section class="wrapper">
            <div class="row">
+               <div class="col-lg-12">
+               <ol class="breadcrumb">
+                   <li><i class="fa fa-home"></i><a href="${pageContext.servletContext.contextPath}/home">Home</a></li>
+                   <li><i class="fa fa-laptop"></i>Dashboard</li>
+               </ol>
                <h3>Add / Edit Employee!!!</h3>
       <form:form method="post" action="/spring/employee.html" commandName="employee">
         <div class="table-responsive">
@@ -37,7 +42,8 @@
            <th>Name</th>
            <th>Age</th>
            <th>Department</th>
-           <th>Edit/Delete</th>
+           <th> </th>
+           <th> </th>
          </tr>
          <spring:forEach items="${employeeList}" var="employee">
          <tr>
@@ -45,10 +51,12 @@
            <td width="60" align="center">${employee.name}</td>
            <td width="60" align="center">${employee.age}</td>
            <td width="60" align="center">${employee.dept}</td>
-           <td width="60" align="center"><a href="edit/${employee.id}">Edit</a>/<a href="delete/${employee.id}">Delete</a></td>
+           <td width="60" align="center"><a href="${pageContext.servletContext.contextPath}/employee/edit/${employee.id}" class="btn-info">Edit</a></td>
+           <td width="60" align="center"><a href="${pageContext.servletContext.contextPath}/employee/delete/${employee.id}" class="btn-info">Delete</a></td>
          </tr>
       </spring:forEach>
     </table>
+               </div>
            </div>
        </section>
 </section>

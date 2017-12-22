@@ -28,7 +28,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
         String sql = "INSERT INTO Employee (ID, AGE, DEPT, NAME)VALUES(?,?,?,?)";
 
         jdbcTemplate.update(sql, new Object[]
-        { employee.getId(), employee.getAge(), employee.getDept(), employee.getName() });
+        { employee.getId(), employee.getAge(), employee.getDept().toUpperCase(), employee.getName().toUpperCase() });
     }
 
     // Getting a particular Employee
@@ -44,8 +44,8 @@ public class EmployeeDAOImpl implements EmployeeDAO
             {
                 Employee employee = new Employee();
                 employee.setId(rs.getInt(1));
-                employee.setName(rs.getString(2));
-                employee.setDept(rs.getString(3));
+                employee.setName(rs.getString(2).toUpperCase());
+                employee.setDept(rs.getString(3).toUpperCase());
                 employee.setAge(rs.getInt(4));
                 return employee;
             }
@@ -69,8 +69,8 @@ public class EmployeeDAOImpl implements EmployeeDAO
                 {
                     Employee employee = new Employee();
                     employee.setId(rs.getInt(1));
-                    employee.setName(rs.getString(2));
-                    employee.setDept(rs.getString(3));
+                    employee.setName(rs.getString(2).toUpperCase());
+                    employee.setDept(rs.getString(3).toUpperCase());
                     employee.setAge(rs.getInt(4));
                     list.add(employee);
                 }
@@ -87,14 +87,14 @@ public class EmployeeDAOImpl implements EmployeeDAO
     {
         String sql = "UPDATE Employee SET age =?, dept=?,name=? where id=?";
         jdbcTemplate.update(sql, new Object[]
-        { employee.getAge(), employee.getDept(), employee.getName(), employee.getId() });
+        { employee.getAge(), employee.getDept().toUpperCase(), employee.getName().toUpperCase(), employee.getId() });
     }
 
     // Deletion of a particular Employee
     @Override
     public void deleteEmployee(int id)
     {
-        String sql = "DELETE employee WHERE id=?";
+        String sql = "DELETE FROM employee WHERE id=?";
         jdbcTemplate.update(sql, new Object[]
         { id });
     }

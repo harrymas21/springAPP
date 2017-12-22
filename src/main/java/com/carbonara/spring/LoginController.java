@@ -41,8 +41,8 @@ public class LoginController {
     //mav = new ModelAndView("welcome");
         mav = new ModelAndView("home");
 
-    mav.addObject("firstname", user.getFirstname());
-
+    mav.addObject("firstname", user.getFirstname().toUpperCase());
+    mav.addObject("lastname", user.getLastname().toUpperCase());
     } else {
 
     mav = new ModelAndView("login");
